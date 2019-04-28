@@ -1,0 +1,22 @@
+import math
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        st = str(x)
+        if len(st) == 2:
+            if st[0] == st[1]:
+                return True
+            else:
+                return False
+        first = 0
+        last = len(st) - 1
+        for _ in range(math.floor(len(st)/2)):
+            if st[first] != st[last]:
+                return False
+            first += 1
+            last -= 1
+        return True
+            
+        
+        
