@@ -1,0 +1,26 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        ans = 0
+        ar = []
+        index = 0
+        boole = False
+        if x == 0:
+            return 0
+        for i in reversed(range(len(str(x)))):
+            ar.append(str(x)[i])
+        if ar[len(ar)-1] == '-':
+            ar.remove('-')
+            boole = True
+        while True:
+            if ar[index] == '0':
+                ar.remove('0')
+                index -= 1
+            else:
+                break
+            index += 1
+        if boole:
+            ar.insert(0, '-')
+        ans = int(''.join(ar))
+        if ans > 2**31-1 or ans < -2**31:
+            return 0
+        return ans
