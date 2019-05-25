@@ -1,0 +1,11 @@
+from collections import Counter
+class Solution:
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        lib = Counter(S)
+        res = 0
+        for i in range(len(J)):
+            if J[i] in lib:
+                res += lib[J[i]]
+        return res
+        
+        
