@@ -1,0 +1,22 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+# I needed Help from the LeetCode on how to use binary search trees; would like clarifications.
+class Solution:
+    def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
+        res = 0
+        ar = [root]
+        while ar:
+            node = ar.pop()
+            if node:
+                if L <= node.val and node.val <= R:
+                    res += node.val
+                if L < node.val:
+                    ar.append(node.left)
+                if node.val < R:
+                    ar.append(node.right)
+                    
+        return res
