@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def repeatedNTimes(self, A: List[int]) -> int:
+        lib = Counter(A)
+        maxi = 0
+        res = 0
+        for i in lib:
+            if lib[i] > maxi:
+                maxi = lib[i]
+                res = i
+        return res
+        
+        
