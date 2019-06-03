@@ -1,0 +1,11 @@
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        hor = moves.count("R") - moves.count("L")
+        ver = moves.count("U") - moves.count("D")
+        if ver == 0 and hor == 0:
+            return True
+        return False
+
+#not my initial code, but i wanted to remember it this way; I need to improve.
+            
+        
