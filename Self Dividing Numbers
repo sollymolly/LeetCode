@@ -1,0 +1,19 @@
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        res = []
+        stri = ''
+        boole = False
+        for i in range(left, right + 1):
+            stri = str(i)
+            for j in range(len(stri)):
+                if int(stri[j]) == 0:
+                    boole = True
+                    break     
+                if int(stri) % int(stri[j]) != 0:
+                    boole = True
+                    break
+            if boole == False:
+                res.append(i)
+            boole = False
+        return res
+        
