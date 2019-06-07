@@ -1,0 +1,21 @@
+class Solution:
+    def diStringMatch(self, S: str) -> List[int]:
+        A = []
+        first = 0
+        last = len(S)
+        for i in range(len(S)):
+            if S[i] == 'I':
+                A.append(first)
+                first += 1
+            else:
+                A.append(last)
+                last -= 1
+        A.append(last)
+        return A
+                
+            
+        
+        
+                
+                    
+        
