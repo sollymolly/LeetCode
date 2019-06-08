@@ -1,0 +1,22 @@
+class Solution:
+    def minDeletionSize(self, A: List[str]) -> int:
+        colu = []
+        string = ''
+        sort = []
+        res = 0
+        for row in range(len(A[0])):
+            string = ''
+            for col in range(len(A)):
+                string += A[col][row]    
+            colu.append(string)
+        for i in range(len(colu)):
+            sort = sorted(colu[i])
+            for j in range(len(colu[i])):
+                if sort[j] != colu[i][j]:
+                    res += 1
+                    break
+                
+        return res
+                
+                
+        
