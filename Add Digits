@@ -1,0 +1,18 @@
+class Solution:
+    def addDigits(self, num: int) -> int:
+        if len(str(num)) == 1:
+            return num
+        new = 0
+        st = str(num)
+        while True:
+            for i in range(len(st)):
+                print(int(st[i]))
+                new += int(st[i])
+            new = str(new)
+            if len(new) == 1:
+                return int(new)
+            st = str(new)
+            new = 0
+            
+                
+        
