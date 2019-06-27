@@ -1,0 +1,22 @@
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        email, local, domain, new = '', '', '', ''
+        ind = 0
+        res = []
+        for i in range(len(emails)):
+            email = emails[i]
+            ind = email.index("@")
+            email = email.replace("@", "")
+            local = email[:ind]
+            domain = email[ind:]
+            local = local.replace(".", "")
+            if '+' in local:
+                ind = local.index("+")
+                local = local[:ind]
+            new = "{}@{}".format(local, domain)
+            if new not in res:
+                res.append(new)
+        return len(res)
+            
+            
+        
