@@ -1,0 +1,21 @@
+class Solution:
+    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+        text = text.split()
+        ind = 0
+        res = []
+        while True:
+            if first in text:
+                ind = text.index(first)
+                if ind == len(text) - 1 or ind == len(text) - 2:
+                    break
+                if text[ind+1] == second:
+                    res.append(text[ind+2])
+                    text.pop(ind)
+                    text.pop(ind)
+                else:
+                    text.pop(ind)
+            else:
+                break
+        return res
+        
+        
