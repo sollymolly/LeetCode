@@ -1,0 +1,44 @@
+class Solution:
+    def numRookCaptures(self, board: List[List[str]]) -> int:
+        def solve(arr, num):
+            new_row = num
+            res = 0
+            if 'p' in arr:
+                pass
+                while True:
+                    if new_row == 0:
+                        break
+                    new_row -= 1
+                    if arr[new_row] == 'p':
+                        res += 1
+                        break
+                    elif arr[new_row] == 'B':
+                        break
+                new_row = num
+                while True:
+                    if new_row == 7:
+                        break
+                    new_row += 1
+                    if arr[new_row] == 'p':
+                        res += 1
+                        break
+                    elif arr[new_row] == 'B':
+                        break
+                return res
+            else:
+                return 0
+        row, col = 0, 0
+        boardrow, boardcol = [], []
+        for i in range(8):
+            if "R" in board[i]:
+                row = i
+                boardrow = board[i]
+                col = board[row].index("R")
+                break
+        for i in range(8):
+            boardcol.append(board[i][col])
+        return solve(boardcol, row) + solve(boardrow, col)
+            
+            
+            
+            
