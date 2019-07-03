@@ -1,0 +1,22 @@
+class Solution:
+    def commonChars(self, A: List[str]) -> List[str]:
+        word = A[0]
+        an = ''
+        res = []
+        t = True
+        l = []
+        for i in range(len(word)):
+            for j in range(1, len(A)):
+                if word[i] not in A[j]:
+                    t = False
+                    break
+            if t:
+                res.append(word[i])
+                for k in range(1, len(A)):
+                    l = list(A[k])
+                    l.remove(word[i])
+                    A[k] = l
+            t = True
+        return res
+                
+            
