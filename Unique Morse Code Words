@@ -1,0 +1,16 @@
+import string
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        ar = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        alpha = string.ascii_lowercase
+        old = []
+        word = ''
+        ind = 0
+        for i in range(len(words)):
+            word=''
+            for j in range(len(words[i])):
+                ind = alpha.index(words[i][j])
+                word += ar[ind]
+            if word not in old:
+                old.append(word)
+        return len(old)
